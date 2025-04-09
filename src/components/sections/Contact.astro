@@ -1,0 +1,74 @@
+---
+interface ContactInfo {
+  email: string;
+  phone: string;
+  location: string;
+}
+
+interface SocialLink {
+  platform: string;
+  icon: string;
+  url: string;
+}
+
+interface Props {
+  contactInfo?: ContactInfo;
+  socialLinks?: SocialLink[];
+}
+
+const defaultContactInfo: ContactInfo = {
+  email: "arnav.panigrahi@gmail.com",
+  phone: "+1 (951) 347-2063",
+  location: "California, USA"
+};
+
+const defaultSocialLinks: SocialLink[] = [
+  { platform: "GitHub", icon: "fa-github", url: "https://github.com/notquitethereyet" },
+  { platform: "LinkedIn", icon: "fa-linkedin", url: "https://www.linkedin.com/in/arnav-panigrahi/" },
+  // { platform: "Twitter", icon: "fa-twitter", url: "https://twitter.com/arnavpanigrahi" },
+  // { platform: "Dev.to", icon: "fa-dev", url: "https://dev.to/arnavpanigrahi" },
+  { platform: "Medium", icon: "fa-medium", url: "https://medium.com/@notquitethereyet_/vim-for-beginners-bdbbceb46b19" }
+];
+
+const { 
+  contactInfo = defaultContactInfo,
+  socialLinks = defaultSocialLinks
+} = Astro.props;
+---
+
+<section id="contact" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">Get In Touch</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">Contact Information</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center">
+            <i class="fas fa-envelope text-blue-500 mr-2"></i>
+            <span>{contactInfo.email}</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone text-blue-500 mr-2"></i>
+            <span>{contactInfo.phone}</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+            <span>{contactInfo.location}</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">Connect With Me</h3>
+        <div class="flex justify-center space-x-6">
+          {socialLinks.map((social) => (
+            <a href={social.url} class="text-gray-700 hover:text-blue-600 transition" aria-label={social.platform}>
+              <i class={`fab ${social.icon} text-2xl`}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

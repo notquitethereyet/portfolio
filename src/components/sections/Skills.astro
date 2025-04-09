@@ -1,0 +1,142 @@
+---
+interface Skill {
+  name: string;
+  icon: string;
+  prefix?: string;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}
+
+interface Props {
+  categories?: SkillCategory[];
+}
+
+const defaultCategories: SkillCategory[] = [
+  {
+    title: "Programming Languages",
+    skills: [
+      { name: "Python", icon: "fa-python", prefix: "fab" },
+      { name: "JavaScript", icon: "fa-js-square", prefix: "fab" },
+      { name: "TypeScript", icon: "fa-js", prefix: "fab" },
+      { name: "C++", icon: "fa-code", prefix: "fas" },
+      { name: "Java", icon: "fa-java", prefix: "fab" }
+    ]
+  },
+  {
+    title: "Frontend Development",
+    skills: [
+      { name: "React", icon: "fa-react", prefix: "fab" },
+      { name: "Angular", icon: "fa-angular", prefix: "fab" },
+      { name: "Tailwind CSS", icon: "fa-wind", prefix: "fas" },
+      { name: "Svelte", icon: "fa-fire", prefix: "fas" },
+      { name: "Astro", icon: "fa-rocket", prefix: "fas" }
+    ]
+  },
+  {
+    title: "Backend Development",
+    skills: [
+      { name: "Node.js", icon: "fa-node-js", prefix: "fab" },
+      { name: "Express.js", icon: "fa-server", prefix: "fas" },
+      { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
+      { name: "Flask", icon: "fa-python", prefix: "fab" }
+    ]
+  },
+  {
+    title: "Machine Learning",
+    skills: [
+      { name: "PyTorch", icon: "fa-fire", prefix: "fas" },
+      { name: "TensorFlow", icon: "fa-cubes", prefix: "fas" },
+      { name: "Neural Networks", icon: "fa-project-diagram", prefix: "fas" },
+      { name: "Computer Vision", icon: "fa-eye", prefix: "fas" },
+      { name: "NLP & Transformers", icon: "fa-language", prefix: "fas" }
+    ]
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "Git", icon: "fa-git-alt", prefix: "fab" },
+      { name: "Linux", icon: "fa-linux", prefix: "fab" },
+      { name: "NixOS", icon: "fa-snowflake", prefix: "fas" },
+      { name: "Docker", icon: "fa-docker", prefix: "fab" },
+      { name: "Jupyter Notebook", icon: "fa-book-open", prefix: "fas" }
+    ]
+  }
+];
+
+const { categories = defaultCategories } = Astro.props;
+---
+
+<section id="skills" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">My Skills</h2>
+    
+    <!-- First row with 3 categories -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div class="bg-blue-50 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[0].title}</h3>
+        <ul class="space-y-2">
+          {categories[0].skills.map((skill) => (
+            <li class="flex items-center">
+              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
+              <span>{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="bg-blue-50 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[1].title}</h3>
+        <ul class="space-y-2">
+          {categories[1].skills.map((skill) => (
+            <li class="flex items-center">
+              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
+              <span>{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="bg-blue-50 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[2].title}</h3>
+        <ul class="space-y-2">
+          {categories[2].skills.map((skill) => (
+            <li class="flex items-center">
+              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
+              <span>{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Second row with 2 categories, centered -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 mx-auto">
+      <div class="bg-blue-50 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[3].title}</h3>
+        <ul class="space-y-2">
+          {categories[3].skills.map((skill) => (
+            <li class="flex items-center">
+              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
+              <span>{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="bg-blue-50 p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[4].title}</h3>
+        <ul class="space-y-2">
+          {categories[4].skills.map((skill) => (
+            <li class="flex items-center">
+              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
+              <span>{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
