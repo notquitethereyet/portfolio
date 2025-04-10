@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://notquitethereyet.github.io/portfolio/sitemap.xml

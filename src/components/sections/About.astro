@@ -1,4 +1,6 @@
 ---
+import { buildUrl } from '../../utils/paths';
+
 interface Props {
   initials?: string;
   paragraphs?: string[];
@@ -6,17 +8,17 @@ interface Props {
 }
 
 const defaultParagraphs = [
-  "I’m a Computer Science graduate from the University of California, Riverside, with 2 years of hands-on experience in software development and a strong focus on ethical, privacy-conscious AI.",
-  "Currently, I work at AllCheer, where I build web applications using React with Express.js or Flask backends. My work includes HIPAA-compliant development, automating healthcare workflows, and building internal staff tools. I also create web-based solutions for tasks like text parsing and AI-assisted scheduling, leveraging platforms like Supabase, Make, and the Google Maps API.",
-  "I’m deeply interested in the intersection of Artificial Intelligence, Machine Learning, and Linux-based systems. My focus is on building responsible, real-world AI systems that align with open-source values and data privacy principles.",
-  "In my free time, I’m exploring NixOS and Deep Learning, with a growing interest in deploying ML models and experimenting with agentic AI architectures."
+  "I'm a Computer Science graduate from the University of California, Riverside, with 2 years of hands-on experience in software development and a strong interest in ethical, privacy-conscious AI.",
+  "Currently, I work at AllCheer, where I build web applications using React with Express.js or Flask backends. My work also includes HIPAA-compliant development, automating healthcare workflows, and building internal staff tools using platforms like Supabase, Make, and RESTful APIs.",
+  "I'm deeply interested in the intersection of Artificial Intelligence, Machine Learning, and Linux-based systems. My focus is on building responsible, real-world AI systems that align with open-source values and data privacy principles.",
+  "In my free time, I'm exploring NixOS and Deep Learning, with a growing interest in deploying ML models and experimenting with agentic AI architectures."
 ];
 
 
 const {
   initials = "Q",
   paragraphs = defaultParagraphs,
-  imagePath = `${import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`}mumei.jpg`,
+  imagePath = buildUrl('mumei.jpg'),
 } = Astro.props;
 ---
 
@@ -32,7 +34,7 @@ const {
         <div
           class="w-64 h-64 rounded-full bg-blue-200 mx-auto overflow-hidden shadow-lg"
         >
-          <img src={imagePath} alt="Arnav Panigrahi" class="w-full h-full object-cover" />
+          <img src={imagePath} alt="Arnav Panigrahi" class="w-full h-full object-cover" title="nanashi" />
         </div>
       </div>
 

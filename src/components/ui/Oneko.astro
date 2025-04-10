@@ -1,4 +1,6 @@
 ---
+import { buildUrl } from '../../utils/paths';
+
 interface Props {
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
@@ -15,8 +17,7 @@ const positionClasses = {
   'bottom-right': 'bottom-4 right-4'
 };
 
-const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const onekoUrl = `${baseUrl}oneko.gif`;
+const onekoUrl = buildUrl('oneko.gif');
 ---
 
 <div id="oneko" class={`fixed ${positionClasses[position]} z-50 cursor-pointer`} aria-hidden="true"></div>
@@ -35,28 +36,14 @@ const onekoUrl = `${baseUrl}oneko.gif`;
     cursor: pointer;
   }
 
-  #oneko.running {
-    animation: running 0.2s steps(2) infinite;
+  #oneko:hover {
+    animation: 2.5s 1 forwards wakeup;
   }
 
-  #oneko.up {
-    transform: rotate(0deg);
-  }
-
-  #oneko.down {
-    transform: rotate(180deg);
-  }
-
-  #oneko.left {
-    transform: rotate(270deg);
-  }
-
-  #oneko.right {
-    transform: rotate(90deg);
-  }
-
-  #oneko.awake {
-    animation: wakeup 1s steps(5);
+  @media (prefers-reduced-motion) {
+    #oneko {
+      display: none;
+    }
   }
 
   @keyframes sleep {

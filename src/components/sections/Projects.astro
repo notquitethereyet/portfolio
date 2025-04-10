@@ -67,6 +67,7 @@ const defaultProjects: Project[] = [
     tags: ["React", "FastAPI", "CNN", "Machine Learning", "Tailwind", "Canvas"],
     githubUrl: "https://github.com/notquitethereyet/MNIST_Webapp"
   },
+  /* Commented out as per portfolio review
   {
     title: "FantasyComposer: LSTM Music Generation",
     description: "Created an advanced music generation system that composes original pieces in the style of Final Fantasy soundtracks. Engineered a specialized LSTM neural network architecture that captures melodic patterns, harmonic progressions, and orchestration techniques from the iconic game series.",
@@ -77,6 +78,7 @@ const defaultProjects: Project[] = [
     tags: ["Machine Learning", "LSTM", "MIDI", "Music Generation", "Deep Learning"],
     githubUrl: "https://github.com/notquitethereyet/FF-LSTM-MusicGen"
   },
+  */
   {
     title: "Declarative NixOS Configuration Framework",
     description: "Created a modular, reproducible NixOS configuration framework that enables consistent development environments across multiple machines. Features automated system setup, containerized development environments, and declarative package management with rollback capabilities.",
@@ -87,6 +89,7 @@ const defaultProjects: Project[] = [
     tags: ["NixOS", "Nix", "Linux", "DevOps", "Configuration"],
     githubUrl: "https://github.com/notquitethereyet/nixchan"
   },
+  /* Commented out as per portfolio review
   {
     title: "Healthcare Automation Platform",
     description: "Developed end-to-end automation workflows and secure web applications for healthcare data processing that reduced manual work by 65%. Implemented HIPAA-compliant data pipelines using Make.com, Supabase with PostgreSQL, and Google APIs to streamline patient information management.",
@@ -97,18 +100,19 @@ const defaultProjects: Project[] = [
     tags: ["Make.com", "Supabase", "Google APIs", "Automation"]
     // githubUrl: "https://github.com/notquitethereyet/healthcare-automation"
   }
+  */
 ];
 
 const { projects = defaultProjects } = Astro.props;
 ---
 
 <section id="projects" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">My Projects</h2>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {projects.map((project) => (
-        <div class={`${project.bgColor || 'bg-blue-50'} p-6 rounded-lg shadow transform hover:-translate-y-1 transition duration-300`}>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {projects.slice(0, 6).map((project) => (
+        <div class={`${project.bgColor || 'bg-blue-50'} p-6 rounded-lg shadow transform hover:-translate-y-1 transition duration-300 h-full flex flex-col`}>
           <div class="flex items-start mb-4">
             <div class={`w-10 h-10 flex items-center justify-center mr-4`}>
               <i class={`fas ${project.icon || 'fa-code'} text-2xl ${project.iconColor || 'text-blue-600'}`}></i>
