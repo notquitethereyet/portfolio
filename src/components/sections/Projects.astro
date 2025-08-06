@@ -38,6 +38,16 @@ const defaultProjects: Project[] = [
     githubUrl: "https://github.com/hoyathalis/bedtime.ai"
   },
   {
+  title: "Rethink BH Automation – Real-Time Sync",
+  description: "Built a FastAPI backend that syncs appointment and authorization data from Rethink BH in real time. Emulated secure user login, deployed on Cloud Run with Docker and full observability stack, resulting in 90% cost savings and replacing a 24–48h latency pipeline.",
+  icon: "fa-cloud",
+  iconColor: "text-blue-600",
+  bgColor: "bg-blue-50",
+  textColor: "text-blue-800",
+  tags: ["FastAPI", "Cloud Run", "Google Cloud", "Automation", "DevOps"],
+  githubUrl: "", // private work, likely, so omit or keep empty
+},
+  {
     title: "RAG System with Pinecone & Groq",
     description: "Architected a high-performance Retrieval-Augmented Generation system that processes documents in real-time. Integrated Pinecone vector database with Groq's inference API to achieve efficient responses and a 35% improvement in search relevance over traditional methods.",
     icon: "fa-brain",
@@ -76,29 +86,18 @@ const defaultProjects: Project[] = [
     textColor: "text-blue-800",
     tags: ["React", "FastAPI", "CNN", "Machine Learning", "Tailwind", "Canvas"],
     githubUrl: "https://github.com/notquitethereyet/MNIST_Webapp"
-  },
-  /* Commented out as per portfolio review
-  {
-    title: "FantasyComposer: LSTM Music Generation",
-    description: "Created an advanced music generation system that composes original pieces in the style of Final Fantasy soundtracks. Engineered a specialized LSTM neural network architecture that captures melodic patterns, harmonic progressions, and orchestration techniques from the iconic game series.",
-    icon: "fa-music",
-    iconColor: "text-blue-600",
-    bgColor: "bg-blue-50",
-    textColor: "text-blue-800",
-    tags: ["Machine Learning", "LSTM", "MIDI", "Music Generation", "Deep Learning"],
-    githubUrl: "https://github.com/notquitethereyet/FF-LSTM-MusicGen"
-  },
-  */
-  {
-    title: "Declarative NixOS Configuration Framework",
-    description: "Created a modular, reproducible NixOS configuration framework that enables consistent development environments across multiple machines. Features automated system setup, containerized development environments, and declarative package management with rollback capabilities.",
-    icon: "fa-terminal",
-    iconColor: "text-blue-600", 
-    bgColor: "bg-blue-50", 
-    textColor: "text-blue-800", 
-    tags: ["NixOS", "Nix", "Linux", "DevOps", "Configuration"],
-    githubUrl: "https://github.com/notquitethereyet/nixchan"
-  },
+  }
+
+  // {
+  //   title: "Declarative NixOS Configuration Framework",
+  //   description: "Created a modular, reproducible NixOS configuration framework that enables consistent development environments across multiple machines. Features automated system setup, containerized development environments, and declarative package management with rollback capabilities.",
+  //   icon: "fa-terminal",
+  //   iconColor: "text-blue-600", 
+  //   bgColor: "bg-blue-50", 
+  //   textColor: "text-blue-800", 
+  //   tags: ["NixOS", "Nix", "Linux", "DevOps", "Configuration"],
+  //   githubUrl: "https://github.com/notquitethereyet/nixchan"
+  // },
   /* Commented out as per portfolio review
   {
     title: "Healthcare Automation Platform",
