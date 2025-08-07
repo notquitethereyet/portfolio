@@ -7,7 +7,16 @@ export default defineConfig({
   site: 'https://notquitethereyet.github.io',
   base: '/portfolio',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'boid-simulation': ['./public/js/boid-simulation.js']
+          }
+        }
+      }
+    }
   },
   output: 'static',
   build: {

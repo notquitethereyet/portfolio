@@ -56,15 +56,15 @@ This is a portfolio website featuring a beautiful interactive boid fish simulati
 1. Clone the repository
 2. Install dependencies:
    ```
-   npm install
+   pnpm install
    ```
 3. Run the development server:
    ```
-   npm run dev
+   pnpm dev
    ```
 4. Build for production:
    ```
-   npm run build
+   pnpm build
    ```
 
 ## Porting Notes

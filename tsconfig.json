@@ -1,17 +1,16 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "Node16",
-    "moduleResolution": "node16",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"]
+    },
     "verbatimModuleSyntax": true,
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "types": ["node"]
+    "noUncheckedIndexedAccess": true
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

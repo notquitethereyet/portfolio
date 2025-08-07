@@ -1,4 +1,6 @@
 ---
+import SkillCard from '../ui/SkillCard.astro';
+
 interface Skill {
   name: string;
   icon: string;
@@ -75,68 +77,16 @@ const { categories = defaultCategories } = Astro.props;
     
     <!-- First row with 3 categories -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-      <div class="bg-blue-50 p-6 rounded-lg shadow">
-        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[0].title}</h3>
-        <ul class="space-y-2">
-          {categories[0].skills.map((skill) => (
-            <li class="flex items-center">
-              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
-              <span>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <div class="bg-blue-50 p-6 rounded-lg shadow">
-        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[1].title}</h3>
-        <ul class="space-y-2">
-          {categories[1].skills.map((skill) => (
-            <li class="flex items-center">
-              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
-              <span>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <div class="bg-blue-50 p-6 rounded-lg shadow">
-        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[2].title}</h3>
-        <ul class="space-y-2">
-          {categories[2].skills.map((skill) => (
-            <li class="flex items-center">
-              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
-              <span>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {categories.slice(0, 3).map((category) => (
+        <SkillCard title={category.title} skills={category.skills} />
+      ))}
     </div>
     
     <!-- Second row with 2 categories, centered -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 mx-auto">
-      <div class="bg-blue-50 p-6 rounded-lg shadow">
-        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[3].title}</h3>
-        <ul class="space-y-2">
-          {categories[3].skills.map((skill) => (
-            <li class="flex items-center">
-              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
-              <span>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <div class="bg-blue-50 p-6 rounded-lg shadow">
-        <h3 class="text-xl font-bold mb-4 text-blue-800 text-center">{categories[4].title}</h3>
-        <ul class="space-y-2">
-          {categories[4].skills.map((skill) => (
-            <li class="flex items-center">
-              <i class={`${skill.prefix || 'fas'} ${skill.icon} text-blue-600 mr-2 w-6 text-center`}></i>
-              <span>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {categories.slice(3, 5).map((category) => (
+        <SkillCard title={category.title} skills={category.skills} />
+      ))}
     </div>
   </div>
 </section>
