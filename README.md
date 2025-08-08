@@ -1,4 +1,4 @@
-# Portfolio with Boid Fish Simulation - Astro Version
+# Portfolio – Astro + Liquid Glass UI
 
 This is a portfolio website featuring a beautiful interactive boid fish simulation background, ported to the Astro framework.
 
@@ -19,10 +19,10 @@ This is a portfolio website featuring a beautiful interactive boid fish simulati
   - Built-in optimization for images and assets
 
 ### Styling
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-  - Responsive design system
-  - Custom color theming
-  - JIT (Just-In-Time) compiler for optimized CSS
+- [Tailwind CSS 4](https://tailwindcss.com/) via `@tailwindcss/vite`
+  - Tokens and theme via CSS `@theme` in `src/styles/global.css`
+  - Minimal `tailwind.config.js` (can be removed if not needed)
+  - Dracula color palette mapped to CSS variables
 
 ### Interactive Elements
 - **Boid Simulation Algorithm** - Custom JavaScript implementation
@@ -32,14 +32,17 @@ This is a portfolio website featuring a beautiful interactive boid fish simulati
   - Configurable parameters for fish behavior
 
 ### Icons and UI
-- [Font Awesome](https://fontawesome.com/) - Comprehensive icon library
-- Responsive navigation and section layouts
-- Animated UI elements
+- [Font Awesome](https://fontawesome.com/)
+- Liquid-glass UI components:
+  - Cards: layered `glass-container` with `glass-filter` (backdrop blur), `glass-overlay` (translucent gradient), `glass-specular` (inner rim), `glass-content` (content layer), subtle hover sheen, and press tilt
+  - Buttons: `btn-wrap` + `btn-shadow` + `btn-fancy` with outline sweep and text-shadow animation
 
 ### Deployment
 - GitHub Pages for hosting
 - GitHub Actions for CI/CD pipeline
 - Custom domain configuration
+
+See the stack and best practices in `docs/tech-stack` (internal notes).
 
 ## Project Structure
 
@@ -49,7 +52,9 @@ This is a portfolio website featuring a beautiful interactive boid fish simulati
   - `styles/` - Global CSS styles
 - `public/` - Static assets
   - `js/` - JavaScript files including the boid simulation
-  - `css/` - CSS files
+  - `css/` - (Removed) legacy CSS; styles are consolidated in `src/styles/global.css`
+
+For a detailed, up-to-date directory map and file purposes, see `docs/project-structure` (internal notes).
 
 ## Getting Started
 
@@ -75,3 +80,51 @@ This project was ported from a vanilla HTML/CSS/JS implementation to Astro. The 
 2. Moving static assets to the public directory
 3. Adapting the JavaScript to work with Astro's component lifecycle
 4. Maintaining the same visual design and interactive elements
+
+## UI Updates
+
+- Card titles follow the Dracula accent color:
+  - `src/components/ui/SkillCard.astro`: `text-accent` + `text-shadow-md`.
+  - `src/components/sections/Projects.astro`: `text-accent` + `text-shadow-md`.
+- Buttons upgraded to animated glass style matching the attached behavior:
+  - New styles in `src/styles/global.css`: `btn-wrap`, `btn-shadow`, `btn-fancy`.
+  - Updated usage in `src/components/sections/Hero.astro` and `src/pages/404.astro`.
+
+- Cards standardized to layered liquid-glass:
+  - `glass-container` with filter/overlay/specular/content layers
+  - Subtle hover sheen (masked to upper portion for readability) and click tilt
+  - Applied to Skills, Projects, and Contact cards
+
+## Architecture and Build
+
+- Astro 5 static site (`output: 'static'`, `build.format: 'file'`)
+- Vite plugin: `@tailwindcss/vite` (Tailwind 4). The public CSS (`public/css/styles.css`) has been removed; all styles live in `src/styles/global.css`.
+- The `manualChunks` Rollup config was removed because assets under `public/` are not bundled.
+- Canvas-based boid simulation loaded once at runtime via `BaseLayout` script tag; script lives in `public/js/boid-simulation.js` and is initialized safely idempotently.
+
+## Redundancy audit (safe cleanups)
+
+- Removed legacy stylesheet `public/css/styles.css` and its reference (now all styles in `src/styles/global.css`).
+- Removed `manualChunks` for public assets from `astro.config.mjs` since files under `public/` are not part of the bundle.
+- `tailwind.config.js` is minimal and unused by Tailwind v4; keep or delete. Tokens are defined with `@theme` in CSS.
+- Confirmed no remaining references to deprecated classes (`btn-glass`) or removed CSS path.
+
+## Development
+
+Install and run:
+
+```
+pnpm install
+pnpm dev
+```
+
+Build:
+
+```
+pnpm build
+pnpm preview
+```
+
+## Project Overview
+
+This portfolio showcases projects and skills with a modern liquid-glass aesthetic over a dynamic boid background. The UI uses CSS-only layered glass effects for cards and animated pills for buttons, tuned for readability on a dark Dracula palette. The codebase favors minimal configuration (Tailwind 4 tokens in CSS, thin Astro config) and avoids unnecessary bundling of public assets.

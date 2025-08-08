@@ -17,7 +17,7 @@ const defaultSocialLinks: SocialLink[] = [
   { platform: "LinkedIn", icon: "fa-linkedin", url: "https://www.linkedin.com/in/arnav-panigrahi/" },
   // { platform: "Twitter", icon: "fa-twitter", url: "https://twitter.com/arnavpanigrahi" },
   // { platform: "Dev.to", icon: "fa-dev", url: "https://dev.to/arnavpanigrahi" },
-  { platform: "Medium", icon: "fa-medium", url: "https://medium.com/@notquitethereyet_/vim-for-beginners-bdbbceb46b19" }
+  // { platform: "Medium", icon: "fa-medium", url: "https://medium.com/@notquitethereyet_/vim-for-beginners-bdbbceb46b19" }
 ];
 
 const { 
@@ -26,21 +26,27 @@ const {
 } = Astro.props;
 ---
 
-<section id="contact" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
+<section id="contact" class="py-16 px-4 section-transition">
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">Connect With Me</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center text-gradient">Connect With Me</h2>
     
     <div class="flex justify-center">
-      <div class="bg-blue-50 p-6 rounded-lg shadow-lg max-w-md w-full">
-        <div class="flex justify-center space-x-6">
-          {socialLinks.map((social) => (
-            <a href={social.url} class="text-blue-600 hover:text-blue-800 transition" aria-label={social.platform} target="_blank" rel="noopener noreferrer">
-              <i class={`fab ${social.icon} text-2xl`}></i>
+      <div class="glass-container shadow-glass hover:shadow-xl transform hover:-translate-y-1 transition duration-300 max-w-md w-full text-white/90"
+        data-glass-interactive data-glass-random>
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content p-6">
+          <div class="flex justify-center space-x-6">
+            {socialLinks.map((social) => (
+              <a href={social.url} class="text-[--color-brand-500] hover:text-[--color-accent-500] transition" aria-label={social.platform} target="_blank" rel="noopener noreferrer">
+                <i class={`fab ${social.icon} text-2xl`}></i>
+              </a>
+            ))}
+            <a href={`mailto:${email}`} class="text-[--color-brand-500] hover:text-[--color-accent-500] transition" aria-label="Email">
+              <i class="fas fa-envelope text-2xl"></i>
             </a>
-          ))}
-          <a href={`mailto:${email}`} class="text-blue-600 hover:text-blue-800 transition" aria-label="Email">
-            <i class="fas fa-envelope text-2xl"></i>
-          </a>
+          </div>
         </div>
       </div>
     </div>

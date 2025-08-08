@@ -12,9 +12,9 @@ const {
 } = Astro.props;
 ---
 
-<footer class="py-8 px-4 bg-gray-800 text-white text-center section-transition">
+<footer class="py-8 px-4 text-white text-center section-transition bg-gradient-to-r from-[--color-surface-2] to-[--color-surface]">
   <div class="max-w-4xl mx-auto">
     <p class="mb-4">© {year} {copyright}</p>
-    <p class="text-gray-400" set:html={tagline}></p>
+    <p class="text-white/90" set:html={tagline}></p>
   </div>
 </footer>

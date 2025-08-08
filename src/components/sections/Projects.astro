@@ -115,40 +115,46 @@ const defaultProjects: Project[] = [
 const { projects = defaultProjects } = Astro.props;
 ---
 
-<section id="projects" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
+<section id="projects" class="py-16 px-4 section-transition">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">My Projects</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center text-gradient">My Projects</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {projects.slice(0, 6).map((project) => (
-        <div class={`${project.bgColor || 'bg-blue-50'} p-6 rounded-lg shadow transform hover:-translate-y-1 transition duration-300 h-full flex flex-col`}>
-          <div class="flex items-start mb-4">
-            <div class={`w-10 h-10 flex items-center justify-center mr-4`}>
-              <i class={`fas ${project.icon || 'fa-code'} text-2xl ${project.iconColor || 'text-blue-600'}`}></i>
+        <div class={`glass-container shadow-glass transform hover:-translate-y-1 transition duration-300 h-full flex flex-col`}
+          data-glass-interactive data-glass-random>
+          <div class="glass-filter"></div>
+          <div class="glass-overlay"></div>
+          <div class="glass-specular"></div>
+          <div class="glass-content p-6 flex flex-col h-full">
+            <div class="flex items-start mb-4">
+              <div class={`w-10 h-10 flex items-center justify-center mr-4`}>
+                <i class={`fas ${project.icon || 'fa-code'} text-2xl text-[--color-brand-500]`}></i>
+              </div>
+              <div>
+                <h3 class={`text-xl font-bold mb-2 text-accent text-shadow-md`}>{project.title}</h3>
+                <p class="text-white/80 mb-4">{project.description}</p>
+              </div>
             </div>
-            <div>
-              <h3 class={`text-xl font-bold mb-2 ${project.textColor || 'text-blue-800'}`}>{project.title}</h3>
-              <p class="text-gray-600 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {project.tags.map((tag) => (
+                <span class={`text-xs px-2 py-1 rounded-full bg-white/15 text-white/90 ring-1 ring-white/20` }>
+                  {tag}
+                </span>
+              ))}
             </div>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            {project.tags.map((tag) => (
-              <span class={`text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800`}>
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div class="mt-4 flex gap-4">
-            {project.link && (
-              <a href={project.link} class={`text-sm ${project.iconColor || 'text-blue-600'} hover:underline`}>
-                Learn more <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            )}
-            {project.githubUrl && (
-              <a href={project.githubUrl} class={`text-sm ${project.iconColor || 'text-blue-600'} hover:underline`} target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github mr-1"></i> View on GitHub
-              </a>
-            )}
+            <div class="mt-4 flex gap-4">
+              {project.link && (
+                <a href={project.link} class={`text-sm text-[--color-brand-500] hover:underline`}>
+                  Learn more <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+              )}
+              {project.githubUrl && (
+                <a href={project.githubUrl} class={`text-sm text-[--color-brand-500] hover:underline`} target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github mr-1"></i> View on GitHub
+                </a>
+              )}
+            </div>
           </div>
         </div>
       ))}

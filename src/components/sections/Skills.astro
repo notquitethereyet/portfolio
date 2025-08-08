@@ -71,21 +71,21 @@ const defaultCategories: SkillCategory[] = [
 const { categories = defaultCategories } = Astro.props;
 ---
 
-<section id="skills" class="py-16 px-4 bg-white bg-opacity-90 section-transition">
+<section id="skills" class="py-16 px-4 section-transition">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center text-blue-900">My Skills</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center text-gradient">My Skills</h2>
     
     <!-- First row with 3 categories -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
       {categories.slice(0, 3).map((category) => (
-        <SkillCard title={category.title} skills={category.skills} />
+        <SkillCard title={category.title} skills={category.skills} className="rounded-2xl" />
       ))}
     </div>
     
     <!-- Second row with 2 categories, centered -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 mx-auto">
       {categories.slice(3, 5).map((category) => (
-        <SkillCard title={category.title} skills={category.skills} />
+        <SkillCard title={category.title} skills={category.skills} className="rounded-2xl" />
       ))}
     </div>
   </div>

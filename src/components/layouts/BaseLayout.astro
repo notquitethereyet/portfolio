@@ -36,13 +36,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://notquite
     <link rel="canonical" href={canonicalURL}>
     <title>{title}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href={buildUrl('css/styles.css')} rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href={buildUrl('favicon.svg')} />
 </head>
 <body class="font-sans text-gray-800">
     <canvas id="boidCanvas"></canvas>
     
-    <main class="relative">
+    <main class="relative z-[1]">
         <slot />
     </main>
     
@@ -71,5 +70,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://notquite
     
     <!-- Oneko animation -->
     <Oneko position="bottom-right" />
+  <script>
+    // Attach interactive gradient handlers to elements marked with data-glass-interactive
+    const attachGlassHandlers = (root = document) => {
+      const elements = root.querySelectorAll('[data-glass-interactive]');
+      elements.forEach((el) => {
+        const element = el as HTMLElement;
+        const onMove = (ev: MouseEvent) => {
+          const r = element.getBoundingClientRect();
+          element.style.setProperty('--mx', `${((ev.clientX - r.left) / r.width) * 100}%`);
+          element.style.setProperty('--my', `${((ev.clientY - r.top) / r.height) * 100}%`);
+        };
+        const onEnter = () => {
+          if (element.hasAttribute('data-glass-random')) {
+            const pick = Math.random();
+            element.style.setProperty('--glass-a', pick > .5 ? 'oklch(0.64 0.18 265)' : 'oklch(0.78 0.11 160)');
+            element.style.setProperty('--glass-b', pick > .5 ? 'oklch(0.68 0.21 345)' : 'oklch(0.70 0.16 265)');
+          }
+        };
+        element.addEventListener('mousemove', onMove);
+        element.addEventListener('mouseenter', onEnter);
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => attachGlassHandlers());
+    } else {
+      attachGlassHandlers();
+    }
+  </script>
 </body>
 </html>
+
+

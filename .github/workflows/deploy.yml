@@ -4,6 +4,9 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: [ main ]
+  # Create Preview deployments for pull requests from any branch
+  pull_request:
+    branches: [ "**" ]
   # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
@@ -16,6 +19,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4

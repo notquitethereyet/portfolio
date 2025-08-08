@@ -3,6 +3,12 @@ dist/
 # generated types
 .astro/
 
+# Cursor AI files
+.cursor/
+.cursor-test/
+.cursor-log/
+.cursor-backup/
+
 # dependencies
 node_modules/
 
