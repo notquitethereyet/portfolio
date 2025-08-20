@@ -2,29 +2,76 @@
 import BaseLayout from '../components/layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import About from '../components/sections/About.astro';
-import Projects from '../components/sections/Projects.astro';
 import Skills from '../components/sections/Skills.astro';
-import Contact from '../components/sections/Contact.astro';
+import Projects from '../components/sections/Projects.astro';
+import CTA from '../components/sections/CTA.astro';
 import Footer from '../components/sections/Footer.astro';
+import Oneko from '../components/ui/Oneko.astro';
 
-// Page metadata
-const pageTitle = "Arnav Panigrahi - Portfolio";
-const pageDescription = "Software Developer, ML Enthusiast and Open-Source Lover passionate about everything open-source, Linux, and building cool things with technology.";
+// SEO metadata
+const title = "Arnav Panigrahi - Software Developer & AI/ML Enthusiast";
+const description = "Computer Science graduate with 3+ years experience building ethical AI systems. Specializing in full-stack development, machine learning, and cloud-native solutions.";
+const image = "mumei.jpg";
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Arnav Panigrahi",
+  "jobTitle": "Software Developer",
+  "worksFor": "AllCheer",
+  "description": "Software developer specializing in AI/ML systems and full-stack development",
+  "url": "https://notquitethereyet.github.io/portfolio",
+  "telephone": "+1 951-347-2065",
+  "email": "arnav.panigrahi@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riverside",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://github.com/notquitethereyet",
+    "https://www.linkedin.com/in/arnav-panigrahi/"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning", 
+    "Full-Stack Development",
+    "React",
+    "Python",
+    "FastAPI",
+    "Cloud Computing",
+    "RAG Systems",
+    "Computer Vision",
+    "Enterprise Software"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Software Developer",
+    "description": "Building AI-powered healthcare solutions and enterprise automation systems"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Riverside",
+    "description": "Master of Science in Computer Science (2023-2025)"
+  }
+};
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
-  <Hero />
+<BaseLayout title={title} description={description} image={image}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   
-  <About />
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <CTA />
+    <Footer 
+      copyright="Arnav Panigrahi. All Rights Reserved."
+      tagline="Built with <i class='fas fa-heart text-red-500'></i> and lots of coffee"
+    />
+  </main>
   
-  <Projects />
-  
-  <Skills />
-  
-  <Contact />
-  
-  <Footer 
-    copyright="Arnav Panigrahi"
-    tagline="Built with <a href='https://astro.build' class='text-blue-400 hover:underline'>Astro</a> and <i class='fas fa-heart text-red-500'></i>"
-  />
+  <Oneko />
 </BaseLayout>

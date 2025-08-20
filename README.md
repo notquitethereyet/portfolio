@@ -1,130 +1,162 @@
-# Portfolio – Astro + Liquid Glass UI
+# Arnav Panigrahi - Portfolio
 
-This is a portfolio website featuring a beautiful interactive boid fish simulation background, ported to the Astro framework.
+A modern, professional portfolio website built with Astro and Tailwind CSS, showcasing software development skills and AI/ML projects.
 
-## Features
+## ✨ Features
 
-- Interactive boid fish simulation background
-- Responsive portfolio layout
-- Tailwind CSS for styling
-- Custom color theme based on Catppuccin Mocha
-- Optimized for performance with Astro
+### Professional Content
+- **Enhanced Hero Section**: Compelling tagline and clear call-to-action buttons
+- **Professional About Section**: Quantified achievements and impact metrics
+- **Experience Section**: Detailed work history with key accomplishments
+- **Improved Projects**: Better descriptions, impact metrics, and professional presentation
+- **Enhanced Skills**: Organized by category with relevant technologies
+- **Call-to-Action**: Encourages visitor engagement
 
-## Technologies Used
+### Technical Optimizations
+- **Performance**: CSS optimizations with `will-change` and `backface-visibility`
+- **SEO**: Structured data, meta tags, and proper heading hierarchy
+- **Accessibility**: Proper alt text, ARIA labels, and semantic HTML
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern Animations**: Smooth transitions and hover effects
 
-### Core Framework
-- [Astro](https://astro.build/) - The web framework for content-driven websites
-  - Zero-JS by default with optional hydration
-  - Component-based architecture
-  - Built-in optimization for images and assets
+### Visual Enhancements
+- **Glass Morphism**: Modern UI design with interactive glass effects
+- **Boid Simulation**: Interactive background animation
+- **Smooth Transitions**: Professional animations and micro-interactions
+- **Dracula Theme**: Consistent color scheme throughout
 
-### Styling
-- [Tailwind CSS 4](https://tailwindcss.com/) via `@tailwindcss/vite`
-  - Tokens and theme via CSS `@theme` in `src/styles/global.css`
-  - Minimal `tailwind.config.js` (can be removed if not needed)
-  - Dracula color palette mapped to CSS variables
+## 🚀 Technologies
 
-### Interactive Elements
-- **Boid Simulation Algorithm** - Custom JavaScript implementation
-  - Flocking behavior simulation (separation, alignment, cohesion)
-  - Canvas-based rendering for performance
-  - Responsive to viewport size
-  - Configurable parameters for fish behavior
+- **Framework**: Astro 5.6+
+- **Styling**: Tailwind CSS 4.1+
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages
 
-### Icons and UI
-- [Font Awesome](https://fontawesome.com/)
-- Liquid-glass UI components:
-  - Cards: layered `glass-container` with `glass-filter` (backdrop blur), `glass-overlay` (translucent gradient), `glass-specular` (inner rim), `glass-content` (content layer), subtle hover sheen, and press tilt
-  - Buttons: `btn-wrap` + `btn-shadow` + `btn-fancy` with outline sweep and text-shadow animation
+## 📁 Project Structure
 
-### Deployment
-- GitHub Pages for hosting
-- GitHub Actions for CI/CD pipeline
-- Custom domain configuration
+```
+src/
+├── components/
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   ├── sections/
+│   │   ├── Hero.astro
+│   │   ├── About.astro
+│   │   ├── Experience.astro
+│   │   ├── Skills.astro
+│   │   ├── Projects.astro
+│   │   ├── CTA.astro
+│   │   ├── Contact.astro
+│   │   └── Footer.astro
+│   └── ui/
+│       ├── SkillCard.astro
+│       └── Oneko.astro
+├── pages/
+│   ├── index.astro
+│   └── 404.astro
+├── styles/
+│   └── global.css
+└── utils/
+    └── paths.ts
+```
 
-See the stack and best practices in `docs/tech-stack` (internal notes).
+## 🎯 Key Improvements Made
 
-## Project Structure
+### Content Enhancements
+1. **Professional Messaging**: Updated with Master's degree and specific business impact metrics
+2. **Quantified Achievements**: Added specific metrics ($20K annual savings, 60% efficiency improvement, 90% cost savings)
+3. **Experience Section**: Detailed work history at AllCheer and Pinnacle Consulting with achievements
+4. **Education Section**: New section showcasing Master of Science in Computer Science from UC Riverside
+5. **Enhanced Projects**: Updated with multi-modal AI platform, enterprise ROI system, and utility mapping solutions
+6. **Comprehensive Skills**: Organized by technical areas including AI/ML, cloud platforms, and software engineering practices
+7. **Contact Information**: Added phone number and location for professional networking
 
-- `src/` - Contains all Astro components and pages
-  - `layouts/` - Layout components
-  - `pages/` - Page components
-  - `styles/` - Global CSS styles
-- `public/` - Static assets
-  - `js/` - JavaScript files including the boid simulation
-  - `css/` - (Removed) legacy CSS; styles are consolidated in `src/styles/global.css`
+### Technical Optimizations
+1. **Performance**: Added CSS optimizations for smoother animations
+2. **SEO**: Implemented comprehensive structured data and meta tags
+3. **Accessibility**: Improved ARIA labels and semantic structure
+4. **Code Quality**: Better TypeScript interfaces and component organization
 
-For a detailed, up-to-date directory map and file purposes, see `docs/project-structure` (internal notes).
+### Visual Improvements
+1. **Interactive Elements**: Enhanced hover effects and smooth transitions
+2. **Professional Layout**: Better spacing, typography, and visual hierarchy
+3. **Consistent Design**: Unified glass morphism theme throughout all sections
 
-## Getting Started
+## 🆕 New Sections Added
 
-1. Clone the repository
-2. Install dependencies:
-   ```
+- **Experience Section**: Professional work history with quantified achievements
+- **Education Section**: Academic credentials and specialization
+- **CTA Section**: Encourages visitor engagement
+- **Enhanced Contact**: Professional contact information and social links
+
+## 🚀 Getting Started
+
+1. **Install Dependencies**:
+   ```bash
    pnpm install
    ```
-3. Run the development server:
-   ```
+
+2. **Development Server**:
+   ```bash
    pnpm dev
    ```
-4. Build for production:
-   ```
+
+3. **Build for Production**:
+   ```bash
    pnpm build
    ```
 
-## Porting Notes
+4. **Preview Build**:
+   ```bash
+   pnpm preview
+   ```
 
-This project was ported from a vanilla HTML/CSS/JS implementation to Astro. The main changes include:
+## 🌐 Deployment
 
-1. Creating an Astro component structure
-2. Moving static assets to the public directory
-3. Adapting the JavaScript to work with Astro's component lifecycle
-4. Maintaining the same visual design and interactive elements
+The portfolio is configured for GitHub Pages deployment with custom domain:
+- **Custom Domain**: arnavpanigrahi.com
+- **Base path**: `/` (root)
+- **Static output**
+- **Optimized build settings**
 
-## UI Updates
+### Domain Setup
+1. **GitHub Pages**: Repository settings → Pages → Custom domain → `arnavpanigrahi.com`
+2. **DNS Configuration**: Point your domain to GitHub Pages servers
+3. **SSL**: GitHub Pages automatically provides SSL certificates
+4. **CNAME**: The `public/CNAME` file ensures domain persistence
 
-- Card titles follow the Dracula accent color:
-  - `src/components/ui/SkillCard.astro`: `text-accent` + `text-shadow-md`.
-  - `src/components/sections/Projects.astro`: `text-accent` + `text-shadow-md`.
-- Buttons upgraded to animated glass style matching the attached behavior:
-  - New styles in `src/styles/global.css`: `btn-wrap`, `btn-shadow`, `btn-fancy`.
-  - Updated usage in `src/components/sections/Hero.astro` and `src/pages/404.astro`.
+## 📊 Performance Metrics
 
-- Cards standardized to layered liquid-glass:
-  - `glass-container` with filter/overlay/specular/content layers
-  - Subtle hover sheen (masked to upper portion for readability) and click tilt
-  - Applied to Skills, Projects, and Contact cards
+- **Lighthouse Score**: Optimized for performance, accessibility, and SEO
+- **Core Web Vitals**: Optimized animations and transitions
+- **Mobile Responsiveness**: Mobile-first design approach
 
-## Architecture and Build
+## 🔧 Customization
 
-- Astro 5 static site (`output: 'static'`, `build.format: 'file'`)
-- Vite plugin: `@tailwindcss/vite` (Tailwind 4). The public CSS (`public/css/styles.css`) has been removed; all styles live in `src/styles/global.css`.
-- The `manualChunks` Rollup config was removed because assets under `public/` are not bundled.
-- Canvas-based boid simulation loaded once at runtime via `BaseLayout` script tag; script lives in `public/js/boid-simulation.js` and is initialized safely idempotently.
+### Adding New Sections
+1. Create new component in `src/components/sections/`
+2. Import and add to `src/pages/index.astro`
+3. Update navigation if needed
 
-## Redundancy audit (safe cleanups)
+### Modifying Content
+- Update content in respective component files
+- Modify data arrays for projects, skills, and experience
+- Update meta tags in `BaseLayout.astro`
 
-- Removed legacy stylesheet `public/css/styles.css` and its reference (now all styles in `src/styles/global.css`).
-- Removed `manualChunks` for public assets from `astro.config.mjs` since files under `public/` are not part of the bundle.
-- `tailwind.config.js` is minimal and unused by Tailwind v4; keep or delete. Tokens are defined with `@theme` in CSS.
-- Confirmed no remaining references to deprecated classes (`btn-glass`) or removed CSS path.
+### Styling Changes
+- Modify `src/styles/global.css` for global styles
+- Use Tailwind classes for component-specific styling
+- Update color scheme in CSS custom properties
 
-## Development
+## 📝 License
 
-Install and run:
+This project is open source and available under the [MIT License](LICENSE).
 
-```
-pnpm install
-pnpm dev
-```
+## 🤝 Contributing
 
-Build:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-```
-pnpm build
-pnpm preview
-```
+---
 
-## Project Overview
-
-This portfolio showcases projects and skills with a modern liquid-glass aesthetic over a dynamic boid background. The UI uses CSS-only layered glass effects for cards and animated pills for buttons, tuned for readability on a dark Dracula palette. The codebase favors minimal configuration (Tailwind 4 tokens in CSS, thin Astro config) and avoids unnecessary bundling of public assets.
+Built with ❤️ using [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)

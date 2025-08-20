@@ -18,52 +18,58 @@ interface Props {
 
 const defaultCategories: SkillCategory[] = [
   {
-    title: "Programming Languages",
+    title: "Backend Development & Infrastructure",
     skills: [
       { name: "Python", icon: "fa-python", prefix: "fab" },
-      { name: "JavaScript", icon: "fa-js-square", prefix: "fab" },
-      { name: "TypeScript", icon: "fa-js", prefix: "fab" },
-      { name: "C++", icon: "fa-code", prefix: "fas" },
-      { name: "Java", icon: "fa-java", prefix: "fab" }
-    ]
-  },
-  {
-    title: "Frontend Development",
-    skills: [
-      { name: "React", icon: "fa-react", prefix: "fab" },
-      { name: "Angular", icon: "fa-angular", prefix: "fab" },
-      { name: "Tailwind CSS", icon: "fa-wind", prefix: "fas" },
-      { name: "Svelte", icon: "fa-fire", prefix: "fas" },
-      { name: "Astro", icon: "fa-rocket", prefix: "fas" }
-    ]
-  },
-  {
-    title: "Backend Development",
-    skills: [
+      { name: "FastAPI", icon: "fa-server", prefix: "fas" },
       { name: "Node.js", icon: "fa-node-js", prefix: "fab" },
       { name: "Express.js", icon: "fa-server", prefix: "fas" },
-      { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
-      { name: "Flask", icon: "fa-python", prefix: "fab" }
+      { name: "Docker", icon: "fa-docker", prefix: "fab" },
+      { name: "Kubernetes", icon: "fa-cubes", prefix: "fas" }
     ]
   },
   {
-    title: "Machine Learning",
+    title: "Frontend Development & UI",
+    skills: [
+      { name: "React.js", icon: "fa-react", prefix: "fab" },
+      { name: "Angular", icon: "fa-angular", prefix: "fab" },
+      { name: "TypeScript", icon: "fa-js", prefix: "fab" },
+      { name: "JavaScript", icon: "fa-js-square", prefix: "fab" },
+      { name: "Tailwind CSS", icon: "fa-wind", prefix: "fas" },
+      { name: "HTML/CSS", icon: "fa-code", prefix: "fas" }
+    ]
+  },
+  {
+    title: "Machine Learning & AI",
     skills: [
       { name: "PyTorch", icon: "fa-fire", prefix: "fas" },
       { name: "TensorFlow", icon: "fa-cubes", prefix: "fas" },
-      { name: "Neural Networks", icon: "fa-project-diagram", prefix: "fas" },
-      { name: "Computer Vision", icon: "fa-eye", prefix: "fas" },
-      { name: "NLP & Transformers", icon: "fa-language", prefix: "fas" }
+      { name: "Scikit-learn", icon: "fa-brain", prefix: "fas" },
+      { name: "LangChain", icon: "fa-link", prefix: "fas" },
+      { name: "LLMs", icon: "fa-robot", prefix: "fas" },
+      { name: "RAG", icon: "fa-search", prefix: "fas" }
     ]
   },
   {
-    title: "Tools & Platforms",
+    title: "Databases & Cloud",
+    skills: [
+      { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
+      { name: "MongoDB", icon: "fa-database", prefix: "fas" },
+      { name: "Redis", icon: "fa-database", prefix: "fas" },
+      { name: "Google Cloud", icon: "fa-cloud", prefix: "fas" },
+      { name: "AWS", icon: "fa-cloud", prefix: "fas" },
+      { name: "Azure", icon: "fa-cloud", prefix: "fas" }
+    ]
+  },
+  {
+    title: "Software Engineering",
     skills: [
       { name: "Git", icon: "fa-git-alt", prefix: "fab" },
-      { name: "Linux", icon: "fa-linux", prefix: "fab" },
-      { name: "NixOS", icon: "fa-snowflake", prefix: "fas" },
-      { name: "Docker", icon: "fa-docker", prefix: "fab" },
-      { name: "Jupyter Notebook", icon: "fa-book-open", prefix: "fas" }
+      { name: "CI/CD", icon: "fa-sync", prefix: "fas" },
+      { name: "Agile", icon: "fa-tasks", prefix: "fas" },
+      { name: "TDD", icon: "fa-vial", prefix: "fas" },
+      { name: "System Architecture", icon: "fa-sitemap", prefix: "fas" },
+      { name: "Performance Optimization", icon: "fa-tachometer-alt", prefix: "fas" }
     ]
   }
 ];

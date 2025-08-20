@@ -17,99 +17,66 @@ interface Props {
 }
 
 const defaultProjects: Project[] = [
-  // {
-  //   title: "Intrusion Detection with Neural Networks",
-  //   description: "Engineered a neural network-based Intrusion Detection System with optimized feature selection algorithms that reduced false positives by 27%. Achieved 92.20% accuracy on UNSW-NB15 and 95.14% on NSL-KDD datasets, surpassing previous state-of-the-art benchmarks.",
-  //   icon: "fa-shield-alt",
-  //   iconColor: "text-blue-600", 
-  //   bgColor: "bg-blue-50", 
-  //   textColor: "text-blue-800", 
-  //   tags: ["Neural Networks", "Network Security", "Feature Selection", "Python"],
-  //   githubUrl: "https://github.com/notquitethereyet/ML-IDS"
-  // },
   {
-    title: "Bedtime.ai - AI-Powered Interactive Bedtime Stories",
-    description: "Innovative React/TypeScript application that generates personalized bedtime stories using phi-3 fine-tuned model. Features drawing recognition with EfficientNet-B4, voice cloning with YourTTS, and a microservices architecture with FastAPI backend, PostgreSQL database, and Redis caching for optimal performance.",
+    title: "bedtime.ai – Multi-Modal AI Storytelling Platform",
+    description: "Developed an AI system that transforms children's drawings into personalized bedtime stories narrated in parents' voices. Integrated fine-tuned phi-3 LLM with computer vision (EfficientNet) and voice cloning for 30-second story generation. Built with React/Vite frontend, FastAPI backend, and containerized with Docker.",
     icon: "fa-book-reader",
     iconColor: "text-blue-600", 
     bgColor: "bg-blue-50", 
     textColor: "text-blue-800",
-    tags: ["Collaborator", "React", "TypeScript", "FastAPI", "AI", "Voice Synthesis"],
+    tags: ["Lead Developer", "React", "FastAPI", "AI/ML", "Computer Vision", "Voice Synthesis"],
     githubUrl: "https://github.com/notquitethereyet/bedtime.ai"
   },
   {
-  title: "Rethink BH Automation – Real-Time Sync",
-  description: "Built a FastAPI backend that syncs appointment and authorization data from Rethink BH in real time. Emulated secure user login, deployed on Cloud Run with Docker and full observability stack, resulting in 90% cost savings and replacing a 24–48h latency pipeline.",
-  icon: "fa-cloud",
-  iconColor: "text-blue-600",
-  bgColor: "bg-blue-50",
-  textColor: "text-blue-800",
-  tags: ["FastAPI", "Cloud Run", "Google Cloud", "Automation", "DevOps"],
-  githubUrl: "", // private work, likely, so omit or keep empty
-},
+    title: "Rethink BH Automation – FastAPI + Cloud Run Backend",
+    description: "Built a production FastAPI service to sync real-time appointment and authorization data from Rethink BH to Supabase by emulating secure user login. Achieved 90% cost savings and reduced sync latency from 24-48h to real-time. Deployed with Docker, Secret Manager, and full observability stack on Google Cloud Platform.",
+    icon: "fa-cloud",
+    iconColor: "text-blue-600",
+    bgColor: "bg-blue-50",
+    textColor: "text-blue-800",
+    tags: ["System Architecture", "FastAPI", "Cloud Run", "Google Cloud", "DevOps", "Automation"],
+    githubUrl: ""
+  },
   {
-    title: "RAG System with Pinecone & Groq",
-    description: "Architected a high-performance Retrieval-Augmented Generation system that processes documents in real-time. Integrated Pinecone vector database with Groq's inference API to achieve efficient responses and a 35% improvement in search relevance over traditional methods.",
+    title: "RAG for Document Intelligence",
+    description: "Engineered a Retrieval-Augmented Generation system enabling semantic search across PDF datasets. Combined Pinecone for vector storage with Groq for inference, achieving 35% improved search relevance while maintaining sub-second response times. Implemented custom chunking strategies and comprehensive error handling.",
     icon: "fa-brain",
     iconColor: "text-blue-600", 
     bgColor: "bg-blue-50", 
     textColor: "text-blue-800", 
-    tags: ["Artificial Intelligence", "Machine Learning", "LLMs", "Vector Search"],
+    tags: ["System Design", "AI/ML", "Vector Search", "RAG", "Performance Optimization"],
     githubUrl: "https://github.com/notquitethereyet/simpleRAG"
   },
   {
-    title: "AI-Powered Media Analysis",
-    description: "Engineered a full-stack web application that analyzes online articles using NLP techniques to detect clickbait, assess content quality, and generate concise AI summaries. Achieved 92% accuracy in identifying misleading headlines and reduced reading time by 78% through AI summarization.",
-    icon: "fa-newspaper",
+    title: "Enterprise ROI System with AI Agent",
+    description: "Reengineered a manual Release of Information system to fully automate healthcare document workflow using an AI Agent. Streamlined the entire process resulting in $20K annual savings and 60% reduction in processing time. Built with enterprise-grade security and HIPAAcompliance standards.",
+    icon: "fa-robot",
     iconColor: "text-blue-600",
     bgColor: "bg-blue-50",
     textColor: "text-blue-800",
-    tags: ["React", "Express", "Tailwind", "LLM", "Content Analysis"],
-    githubUrl: "https://github.com/notquitethereyet/slop-journalism-detector"
+    tags: ["AI Agent", "Enterprise", "Automation", "Legal Tech", "Cost Optimization"],
+    githubUrl: ""
   },
   {
-    title: "DeepArtDetect: AI vs Human Art Classifier",
-    description: "Developed a high-accuracy computer vision system that distinguishes between AI-generated and human-created artwork with 94% precision. Implemented and compared multiple deep learning architectures (ResNet, EfficientNet, Vision Transformer) to identify subtle patterns invisible to human observers.",
-    icon: "fa-paint-brush",
+    title: "Therapist Dashboard with GPT Integration",
+    description: "Developed an internal dashboard for 20+ therapists combining REST API CRM for schedule management and therapy progress tracking. Integrated GPT-powered API with custom prompts to structure unformatted input, achieving 35% higher performance compliance and 92% NLP accuracy.",
+    icon: "fa-user-md",
     iconColor: "text-blue-600",
     bgColor: "bg-blue-50",
     textColor: "text-blue-800",
-    tags: ["Machine Learning", "CNN", "Transfer Learning", "Image Classification", "Vision Transformer"],
-    githubUrl: "https://github.com/notquitethereyet/ai-image-classifier"
+    tags: ["React", "GPT API", "Healthcare", "CRM", "NLP", "Performance"],
+    githubUrl: ""
   },
   {
-    title: "HanziRecognize: Chinese Character Classifier",
-    description: "Built an interactive web application featuring real-time Chinese character recognition with 97% accuracy. Implemented a custom CNN architecture optimized for handwritten character recognition, with a responsive canvas interface for drawing and instant feedback.",
-    icon: "fa-language",
+    title: "ArcGIS Utility Mapping Solution",
+    description: "Integrated ArcGIS-based mapping solutions for a $75M/year revenue utility provider in North Carolina. Visualized electric pole installation and synced updates from field workers' mobile apps, reducing oversight error rate by 30%. Built with enterprise-grade security and real-time synchronization.",
+    icon: "fa-map",
     iconColor: "text-blue-600",
     bgColor: "bg-blue-50",
     textColor: "text-blue-800",
-    tags: ["React", "FastAPI", "CNN", "Machine Learning", "Tailwind", "Canvas"],
-    githubUrl: "https://github.com/notquitethereyet/MNIST_Webapp"
+    tags: ["ArcGIS", "GIS", "Utility Tech", "Mobile Apps", "Real-time Sync"],
+    githubUrl: ""
   }
-
-  // {
-  //   title: "Declarative NixOS Configuration Framework",
-  //   description: "Created a modular, reproducible NixOS configuration framework that enables consistent development environments across multiple machines. Features automated system setup, containerized development environments, and declarative package management with rollback capabilities.",
-  //   icon: "fa-terminal",
-  //   iconColor: "text-blue-600", 
-  //   bgColor: "bg-blue-50", 
-  //   textColor: "text-blue-800", 
-  //   tags: ["NixOS", "Nix", "Linux", "DevOps", "Configuration"],
-  //   githubUrl: "https://github.com/notquitethereyet/nixchan"
-  // },
-  /* Commented out as per portfolio review
-  {
-    title: "Healthcare Automation Platform",
-    description: "Developed end-to-end automation workflows and secure web applications for healthcare data processing that reduced manual work by 65%. Implemented HIPAA-compliant data pipelines using Make.com, Supabase with PostgreSQL, and Google APIs to streamline patient information management.",
-    icon: "fa-heartbeat",
-    iconColor: "text-blue-600", 
-    bgColor: "bg-blue-50", 
-    textColor: "text-blue-800", 
-    tags: ["Make.com", "Supabase", "Google APIs", "Automation"]
-    // githubUrl: "https://github.com/notquitethereyet/healthcare-automation"
-  }
-  */
 ];
 
 const { projects = defaultProjects } = Astro.props;
@@ -145,14 +112,17 @@ const { projects = defaultProjects } = Astro.props;
             </div>
             <div class="mt-4 flex gap-4">
               {project.link && (
-                <a href={project.link} class={`text-sm text-[--color-brand-500] hover:underline`}>
-                  Learn more <i class="fas fa-arrow-right ml-1"></i>
+                <a href={project.link} class={`text-sm text-[--color-brand-500] hover:underline transition-colors duration-200`} target="_blank" rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                 </a>
               )}
               {project.githubUrl && (
-                <a href={project.githubUrl} class={`text-sm text-[--color-brand-500] hover:underline`} target="_blank" rel="noopener noreferrer">
-                  <i class="fab fa-github mr-1"></i> View on GitHub
+                <a href={project.githubUrl} class={`text-sm text-[--color-brand-500] hover:underline transition-colors duration-200`} target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github mr-1"></i> View Code
                 </a>
+              )}
+              {!project.link && !project.githubUrl && (
+                <span class="text-sm text-white/50 italic">Private Project</span>
               )}
             </div>
           </div>
