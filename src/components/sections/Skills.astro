@@ -69,17 +69,7 @@ const defaultCategories: SkillCategory[] = [
       },
     ],
   },
-  {
-    title: "Databases & Vector Stores",
-    skills: [
-      { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
-      { name: "MongoDB", icon: "fa-database", prefix: "fas" },
-      { name: "MySQL", icon: "fa-database", prefix: "fas" },
-      { name: "Redis", icon: "fa-database", prefix: "fas" },
-      { name: "Pinecone", icon: "fa-vector-square", prefix: "fas" },
-    ],
-  },
-  {
+    {
     title: "Cloud & DevOps",
     skills: [
       { name: "AWS", icon: "fa-aws", prefix: "fab" },
@@ -89,6 +79,16 @@ const defaultCategories: SkillCategory[] = [
       { name: "Kubernetes", icon: "fa-cubes", prefix: "fas" },
       { name: "CI/CD", icon: "fa-sync", prefix: "fas" },
       { name: "Git", icon: "fa-git-alt", prefix: "fab" },
+    ],
+  },
+  {
+    title: "Databases & Vector Stores",
+    skills: [
+      { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
+      { name: "MongoDB", icon: "fa-database", prefix: "fas" },
+      { name: "MySQL", icon: "fa-database", prefix: "fas" },
+      { name: "Redis", icon: "fa-database", prefix: "fas" },
+      { name: "Pinecone", icon: "fa-vector-square", prefix: "fas" },
     ],
   },
 ];
@@ -115,11 +115,11 @@ const { categories = defaultCategories } = Astro.props;
       }
     </div>
 
-    <!-- Second row with 2 categories, centered -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 mx-auto">
+    <!-- Second row with 3 categories -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {
         categories
-          .slice(3, 5)
+          .slice(3, 6)
           .map((category) => (
             <SkillCard
               title={category.title}
