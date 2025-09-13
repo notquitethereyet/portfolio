@@ -1,5 +1,5 @@
 ---
-import SkillCard from '../ui/SkillCard.astro';
+import SkillCard from "../ui/SkillCard.astro";
 
 interface Skill {
   name: string;
@@ -18,60 +18,79 @@ interface Props {
 
 const defaultCategories: SkillCategory[] = [
   {
-    title: "Backend Development & Infrastructure",
+    title: "Languages & Core Technologies",
     skills: [
       { name: "Python", icon: "fa-python", prefix: "fab" },
-      { name: "FastAPI", icon: "fa-server", prefix: "fas" },
-      { name: "Node.js", icon: "fa-node-js", prefix: "fab" },
-      { name: "Express.js", icon: "fa-server", prefix: "fas" },
-      { name: "Docker", icon: "fa-docker", prefix: "fab" },
-      { name: "Kubernetes", icon: "fa-cubes", prefix: "fas" }
-    ]
-  },
-  {
-    title: "Frontend Development & UI",
-    skills: [
-      { name: "React.js", icon: "fa-react", prefix: "fab" },
-      { name: "Angular", icon: "fa-angular", prefix: "fab" },
-      { name: "TypeScript", icon: "fa-js", prefix: "fab" },
       { name: "JavaScript", icon: "fa-js-square", prefix: "fab" },
-      { name: "Tailwind CSS", icon: "fa-wind", prefix: "fas" },
-      { name: "HTML/CSS", icon: "fa-code", prefix: "fas" }
-    ]
+      { name: "TypeScript", icon: "fa-js", prefix: "fab" },
+      { name: "HTML5", icon: "fa-html5", prefix: "fab" },
+      { name: "CSS3", icon: "fa-css3-alt", prefix: "fab" },
+      { name: "SQL", icon: "fa-database", prefix: "fas" },
+      { name: "JSON", icon: "fa-code", prefix: "fas" },
+      { name: "YAML", icon: "fa-file-code", prefix: "fas" },
+    ],
   },
   {
-    title: "Machine Learning & AI",
+    title: "AI & Machine Learning",
     skills: [
+      { name: "LangChain", icon: "fa-link", prefix: "fas" },
+      { name: "LangGraph", icon: "fa-project-diagram", prefix: "fas" },
+      { name: "LLMs", icon: "fa-robot", prefix: "fas" },
+      { name: "RAG", icon: "fa-search", prefix: "fas" },
       { name: "PyTorch", icon: "fa-fire", prefix: "fas" },
       { name: "TensorFlow", icon: "fa-cubes", prefix: "fas" },
       { name: "Scikit-learn", icon: "fa-brain", prefix: "fas" },
-      { name: "LangChain", icon: "fa-link", prefix: "fas" },
-      { name: "LLMs", icon: "fa-robot", prefix: "fas" },
-      { name: "RAG", icon: "fa-search", prefix: "fas" }
-    ]
+      { name: "NumPy", icon: "fa-calculator", prefix: "fas" },
+      { name: "Pandas", icon: "fa-table", prefix: "fas" },
+    ],
   },
   {
-    title: "Databases & Cloud",
+    title: "Backend Development",
+    skills: [
+      { name: "FastAPI", icon: "fa-server", prefix: "fas" },
+      { name: "Flask", icon: "fa-flask", prefix: "fas" },
+      { name: "Node.js", icon: "fa-node-js", prefix: "fab" },
+      { name: "Express.js", icon: "fa-server", prefix: "fas" },
+      { name: "RESTful APIs", icon: "fa-exchange-alt", prefix: "fas" },
+    ],
+  },
+  {
+    title: "Frontend Development",
+    skills: [
+      { name: "React", icon: "fa-react", prefix: "fab" },
+      { name: "Astro", icon: "fa-rocket", prefix: "fas" },
+      { name: "Angular", icon: "fa-angular", prefix: "fab" },
+      { name: "Next.js", icon: "fa-arrow-right", prefix: "fas" },
+      { name: "Tailwind CSS", icon: "fa-wind", prefix: "fas" },
+      {
+        name: "WCAG Accessibility",
+        icon: "fa-universal-access",
+        prefix: "fas",
+      },
+    ],
+  },
+  {
+    title: "Databases & Vector Stores",
     skills: [
       { name: "PostgreSQL", icon: "fa-database", prefix: "fas" },
       { name: "MongoDB", icon: "fa-database", prefix: "fas" },
+      { name: "MySQL", icon: "fa-database", prefix: "fas" },
       { name: "Redis", icon: "fa-database", prefix: "fas" },
-      { name: "Google Cloud", icon: "fa-cloud", prefix: "fas" },
-      { name: "AWS", icon: "fa-cloud", prefix: "fas" },
-      { name: "Azure", icon: "fa-cloud", prefix: "fas" }
-    ]
+      { name: "Pinecone", icon: "fa-vector-square", prefix: "fas" },
+    ],
   },
   {
-    title: "Software Engineering",
+    title: "Cloud & DevOps",
     skills: [
-      { name: "Git", icon: "fa-git-alt", prefix: "fab" },
+      { name: "AWS", icon: "fa-aws", prefix: "fab" },
+      { name: "GCP", icon: "fa-google", prefix: "fab" },
+      { name: "Azure", icon: "fa-microsoft", prefix: "fab" },
+      { name: "Docker", icon: "fa-docker", prefix: "fab" },
+      { name: "Kubernetes", icon: "fa-cubes", prefix: "fas" },
       { name: "CI/CD", icon: "fa-sync", prefix: "fas" },
-      { name: "Agile", icon: "fa-tasks", prefix: "fas" },
-      { name: "TDD", icon: "fa-vial", prefix: "fas" },
-      { name: "System Architecture", icon: "fa-sitemap", prefix: "fas" },
-      { name: "Performance Optimization", icon: "fa-tachometer-alt", prefix: "fas" }
-    ]
-  }
+      { name: "Git", icon: "fa-git-alt", prefix: "fab" },
+    ],
+  },
 ];
 
 const { categories = defaultCategories } = Astro.props;
@@ -80,19 +99,35 @@ const { categories = defaultCategories } = Astro.props;
 <section id="skills" class="py-16 px-4 section-transition">
   <div class="max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-8 text-center text-gradient">My Skills</h2>
-    
+
     <!-- First row with 3 categories -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-      {categories.slice(0, 3).map((category) => (
-        <SkillCard title={category.title} skills={category.skills} className="rounded-2xl" />
-      ))}
+      {
+        categories
+          .slice(0, 3)
+          .map((category) => (
+            <SkillCard
+              title={category.title}
+              skills={category.skills}
+              className="rounded-2xl"
+            />
+          ))
+      }
     </div>
-    
+
     <!-- Second row with 2 categories, centered -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-2/3 mx-auto">
-      {categories.slice(3, 5).map((category) => (
-        <SkillCard title={category.title} skills={category.skills} className="rounded-2xl" />
-      ))}
+      {
+        categories
+          .slice(3, 5)
+          .map((category) => (
+            <SkillCard
+              title={category.title}
+              skills={category.skills}
+              className="rounded-2xl"
+            />
+          ))
+      }
     </div>
   </div>
 </section>
