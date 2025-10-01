@@ -149,6 +149,10 @@ The portfolio is configured for GitHub Pages deployment with custom domain:
 - Use Tailwind classes for component-specific styling
 - Update color scheme in CSS custom properties
 
+## 🗒️ Updates
+
+- Updated CTA resume icon to point to hosted PDF: [Resume](https://notquitethereyet.github.io/resume/resumeml.pdf)
+
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
